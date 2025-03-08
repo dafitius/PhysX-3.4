@@ -71,7 +71,7 @@ public:
 		mType = c.mType;
 		mObject = c.mObject;
 	}
-
+	NpConnector& operator=(const NpConnector& c) = default;
 	static	void	getBinaryMetaData(PxOutputStream& stream);
 //~PX_SERIALIZATION
 

@@ -65,6 +65,7 @@ struct Simd4fScalarFactory
 	Simd4fScalarFactory& operator=(const Simd4fScalarFactory&); // not implemented
 	inline operator Simd4f() const;
 	inline operator Scalar4f() const;
+	Simd4fScalarFactory(const Simd4fScalarFactory& other) = default;
 
 	const float value;
 };
@@ -90,6 +91,7 @@ struct Simd4fTupleFactory
 		ptr[3] = w;
 	}
 	Simd4fTupleFactory& operator=(const Simd4fTupleFactory&); // not implemented
+	Simd4fTupleFactory(const Simd4fTupleFactory& other) = default;
 	inline operator Simd4f() const;
 	inline operator Scalar4f() const;
 	NV_SIMD_ALIGN(16, float) tuple[4];

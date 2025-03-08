@@ -105,6 +105,8 @@ public:
 	*/
 	PxVehicleWheelsSimData& operator=(const PxVehicleWheelsSimData& src);
 
+	PxVehicleWheelsSimData(const PxVehicleWheelsSimData& other) = default;
+
 	/**
 	\brief Copy the data of a single wheel unit (wheel, suspension, tire) from srcWheel of src to trgWheel.
 	\param[in] src is the data to be copied.

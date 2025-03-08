@@ -524,6 +524,7 @@ class HashBase : private Allocator
 		}
 
 		Iter& operator=(const Iter&);
+		Iter(const Iter& other) = default;
 
 		uint32_t mBucket;
 		uint32_t mEntry;

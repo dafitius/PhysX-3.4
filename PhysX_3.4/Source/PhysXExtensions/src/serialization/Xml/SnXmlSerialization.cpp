@@ -466,7 +466,8 @@ namespace physx { namespace Sn {
 			, mVersionStr( getLatestVersion() )
 			, mPxCollection( &inPxCollection )
 		{
-			memset( &mScale, 0, sizeof( PxTolerancesScale ) );
+			mScale = PxTolerancesScale::Zero();
+			// memset( &mScale, 0, sizeof( PxTolerancesScale ) );
 			PX_ASSERT( mScale.isValid() == false );
 		}
 

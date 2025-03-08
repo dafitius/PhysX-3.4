@@ -93,7 +93,7 @@ namespace physx
 			, stringTable( inStringTable )
 		{
 		}
-
+		PxRepXInstantiationArgs(const PxRepXInstantiationArgs& other) = default;
 		PxRepXInstantiationArgs& operator=(const PxRepXInstantiationArgs&);
 	};
 

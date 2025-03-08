@@ -403,6 +403,7 @@ struct NodeComparator
 	NodeComparator()
 	{
 	}
+	NodeComparator(const NodeComparator& other) = default;
 
 	bool operator() (const QueueElement& node0, const QueueElement& node1) const
 	{

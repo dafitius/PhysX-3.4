@@ -314,7 +314,8 @@ void Dynamics::updateSph(physx::PxBaseTask& continuation)
 			PxU32 byteSize = maxParticles * sizeof(PxVec3) + sizeof(PxF32);
 			mTempParticleForceBuf =
 			    reinterpret_cast<PxVec3*>(mParticleSystem.mAlign16.allocate(byteSize, __FILE__, __LINE__));
-			memset(mTempParticleForceBuf, 0, byteSize);
+			std::fill_n(reinterpret_cast<char*>(mTempParticleForceBuf), byteSize, 0);
+			// memset(mTempParticleForceBuf, 0, byteSize);
 		}
 
 		for(PxU32 i = 0; i < numParticles; ++i)

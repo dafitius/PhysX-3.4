@@ -41,7 +41,7 @@
 using namespace physx;
 
 
-Sc::ParticleElementRbElementInteraction::ParticleElementRbElementInteraction(ParticlePacketShape &particleShape, ShapeSim& rbShape, ActorElementPair& actorElementPair, const PxU32 ccdPass) :
+Sc::ParticleElementRbElementInteraction::ParticleElementRbElementInteraction(ParticlePacketShape &particleShape, ShapeSim& rbShape, ActorElementPair& actorElementPair, const PxU32 ccdPass) noexcept:
 	ElementSimInteraction	(particleShape, rbShape, InteractionType::ePARTICLE_BODY, InteractionFlag::eFILTERABLE | InteractionFlag::eELEMENT_ELEMENT),
 	mActorElementPair		(actorElementPair),
 	mPacketShapeIndex		(PX_INVALID_PACKET_SHAPE_INDEX),

@@ -496,13 +496,16 @@ bool cloth::SwCollision<Simd4f>::buildAcceleration()
 	PX_ASSERT(allTrue(((bounds.mLower * mGridScale + mGridBias) >= simd4f(0.0f)) | sMaskW));
 	PX_ASSERT(allTrue(((bounds.mUpper * mGridScale + mGridBias) < simd4f(8.0f)) | sMaskW));
 
-	memset(mSphereGrid, 0, sizeof(uint32_t) * 6 * (sGridSize));
+	// memset(mSphereGrid, 0, sizeof(uint32_t) * 6 * (sGridSize));
+	std::fill_n(mSphereGrid, 6 * sGridSize / 4, Simd4iZeroFactory());
 	if(mClothData.mEnableContinuousCollision)
 		buildSphereAcceleration(mPrevData.mSpheres);
 	buildSphereAcceleration(mCurData.mSpheres);
+	// memset(mConeGrid, 0, sizeof(uint32_t) * 6 * (sGridSize));
+	std::fill_n(mConeGrid, 6 * sGridSize / 4, Simd4iZeroFactory());
 
-	memset(mConeGrid, 0, sizeof(uint32_t) * 6 * (sGridSize));
 	buildConeAcceleration();
+
 
 	return true;
 }
