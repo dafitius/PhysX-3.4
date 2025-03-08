@@ -54,9 +54,10 @@ namespace Sc
 	public:
 
 		// The ccdPass parameter is needed to avoid concurrent interaction updates while the gpu particle pipeline is running.
-		ParticleElementRbElementInteraction(ParticlePacketShape &particleShape, ShapeSim& rbShape, ActorElementPair& actorElementPair, const PxU32 ccdPass);
+		ParticleElementRbElementInteraction(ParticlePacketShape &particleShape, ShapeSim& rbShape, ActorElementPair& actorElementPair, const PxU32 ccdPass) noexcept;
 		virtual ~ParticleElementRbElementInteraction();
 		PX_INLINE void* operator new(size_t s, void* memory);
+		PX_INLINE static void operator delete(void*, void*) {} // Placement delete to match placement new
 		
 		void destroy(bool isDyingRb, const PxU32 ccdPass);
 

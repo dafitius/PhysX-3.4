@@ -114,6 +114,8 @@ class HeightFieldAabbTest
 	{
 
 	  public:
+	  	Iterator(const Iterator& other) = default;
+
 		bool operator!=(const Iterator& it) const
 		{
 			return (it.mTri != mTri) || (it.mOffset != mOffset);

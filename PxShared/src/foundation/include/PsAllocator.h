@@ -212,6 +212,7 @@ class VirtualAllocator
 	VirtualAllocator(VirtualAllocatorCallback* callback = NULL) : mCallback(callback)
 	{
 	}
+	VirtualAllocator(const VirtualAllocator& other) = default;
 
 	void* allocate(const size_t size, const char* file, const int line)
 	{

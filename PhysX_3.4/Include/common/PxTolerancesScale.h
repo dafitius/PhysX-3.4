@@ -94,6 +94,12 @@ public:
 	PX_INLINE PxTolerancesScale();
 
 	/**
+	\brief constructor sets to zero 
+	*/
+	static PxTolerancesScale Zero();
+
+
+	/**
 	\brief Returns true if the descriptor is valid.
 	\return true if the current settings are valid (returns always true).
 	*/
@@ -106,6 +112,15 @@ PX_INLINE PxTolerancesScale::PxTolerancesScale():
 	mass(1000),
 	speed(10)
 	{
+	}
+
+PX_INLINE PxTolerancesScale PxTolerancesScale::Zero()
+	{
+		auto self = PxTolerancesScale();
+		self.length = 0;
+		self.mass = 0;
+		self.speed = 0;
+		return self;
 	}
 
 PX_INLINE bool PxTolerancesScale::isValid() const

@@ -120,6 +120,9 @@ class PxStrideIterator
 		PX_ASSERT(mStride == 0 || sizeof(T) <= mStride);
 	}
 
+	PX_INLINE PxStrideIterator& operator=(const PxStrideIterator& other) = default;
+
+
 	/**
 	\brief Get pointer to element.
 	*/

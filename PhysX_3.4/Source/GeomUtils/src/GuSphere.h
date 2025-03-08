@@ -73,6 +73,13 @@ namespace Gu
 		{
 		}
 
+		PX_INLINE Sphere& operator=(const Sphere& other)
+		{
+			center = other.center;
+			radius = other.radius;
+			return *this;
+		}
+
 		PX_INLINE	void	set(const PxVec3& _center, float _radius)		{ center = _center; radius = _radius;	}
 
 		/**

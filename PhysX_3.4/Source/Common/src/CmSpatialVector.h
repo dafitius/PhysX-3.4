@@ -57,6 +57,8 @@ public:
 	{
 	}
 
+	SpatialVector(const SpatialVector& other) = default;
+
 	PX_FORCE_INLINE ~SpatialVector()
 	{}
 

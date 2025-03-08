@@ -62,9 +62,10 @@ class SwCollision
 	{
 		Simd4i mCones;
 		Simd4i mSpheres;
-
+		ShapeMask() = default;
 		ShapeMask& operator=(const ShapeMask&);
 		ShapeMask& operator&=(const ShapeMask&);
+		ShapeMask(const ShapeMask& other) = default;
 	};
 
 	struct CollisionData

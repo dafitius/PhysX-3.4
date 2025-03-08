@@ -62,6 +62,8 @@ namespace Gu
 										mRef[2] = triangle.mRef[2];
 									}
 		PX_FORCE_INLINE				~IndTri32()								{}
+		IndTri32& operator=(const IndTri32&) = default;
+
 						PxU32		mRef[3];
 	};
 	PX_COMPILE_TIME_ASSERT(sizeof(IndTri32)==12);
@@ -78,6 +80,8 @@ namespace Gu
 										mRef[2] = triangle.mRef[2];
 									}
 		PX_FORCE_INLINE				~IndTri16()								{}
+		IndTri16& operator=(const IndTri16&) = default;
+
 						PxU16		mRef[3];
 	};
 	PX_COMPILE_TIME_ASSERT(sizeof(IndTri16)==6);

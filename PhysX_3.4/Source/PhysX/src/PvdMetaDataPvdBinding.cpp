@@ -1337,6 +1337,8 @@ struct ParticleFluidUpdater
 	{
 	}
 
+	ParticleFluidUpdater(const ParticleFluidUpdater&) = default;
+
 	template <PxU32 TKey, typename TObjectType, typename TPropertyType, PxU32 TEnableFlag>
 	void handleBuffer(const PxBufferPropertyInfo<TKey, TObjectType, PxStrideIterator<const TPropertyType>, TEnableFlag>& inProp, NamespacedName datatype)
 	{
@@ -1619,6 +1621,8 @@ struct PxClothFabricCollectionOperator : CollectionOperator<PxClothFabric>
 	: CollectionOperator<PxClothFabric>(ary, obj, stream)
 	{
 	}
+
+	PxClothFabricCollectionOperator(const PxClothFabricCollectionOperator&) = default;
 
 	template <PxU32 TKey, typename TObject, typename TColType>
 	void handleCollection(const PxReadOnlyCollectionPropertyInfo<TKey, TObject, TColType>& prop)

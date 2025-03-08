@@ -345,7 +345,7 @@ PX_FORCE_INLINE Vec3V V3LoadA(const PxVec3& f)
 {
 	ASSERT_ISALIGNED16(const_cast<PxVec3*>(&f));
 #if !PX_EMSCRIPTEN
-	return _mm_and_ps(reinterpret_cast<const Vec3V&>(f), V4LoadA(internalUnitSSE2Simd::gMaskXYZ));
+	return _mm_and_ps(V3LoadU(f), V4LoadA(internalUnitSSE2Simd::gMaskXYZ));
 #else
 	return _mm_and_ps((Vec3V&)f, (VecI32V&)internalUnitSSE2Simd::gMaskXYZ);
 #endif

@@ -295,8 +295,8 @@ cloth::IterationState<Simd4f> cloth::IterationStateFactory::create(MyCloth const
 
 	if(result.mIsTurning)
 	{
-		Simd4f curAngularVelocity = load(array(invRotation.rotate(cloth.mAngularVelocity)));
-		Simd4f prevAngularVelocity = load(array(invRotation.rotate(mPrevAngularVelocity)));
+		Simd4f curAngularVelocity = load(array(physx::PxVec4(invRotation.rotate(cloth.mAngularVelocity), 0.0)));
+		Simd4f prevAngularVelocity = load(array(physx::PxVec4(invRotation.rotate(mPrevAngularVelocity), 0.0)));
 
 		// rotation for one iteration in local space
 		Simd4f curInvAngle = -iterDt * curAngularVelocity;

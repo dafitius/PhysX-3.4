@@ -49,6 +49,7 @@ class LerpIterator
 	: mAlpha(simd4f(alpha)), mStart(start), mTarget(target)
 	{
 	}
+	LerpIterator(const LerpIterator& other) = default;
 
 	// return the interpolated point at a given index
 	inline Simd4f operator[](size_t index) const
@@ -87,6 +88,8 @@ class UnalignedIterator
 	UnalignedIterator(const float* pointer) : mPointer(pointer)
 	{
 	}
+	UnalignedIterator(const UnalignedIterator& other) = default;
+
 
 	inline Simd4f operator[](size_t index) const
 	{
@@ -117,6 +120,7 @@ class ConstantIterator
 	ConstantIterator(const Simd4f& value) : mValue(value)
 	{
 	}
+	ConstantIterator(const ConstantIterator& other) = default;
 
 	inline Simd4f operator*() const
 	{
@@ -142,6 +146,7 @@ class ScaleBiasIterator
 	: mScale(scale), mBias(bias), mBaseIterator(base)
 	{
 	}
+	ScaleBiasIterator(const ScaleBiasIterator& other) = default;
 
 	inline Simd4f operator*() const
 	{
