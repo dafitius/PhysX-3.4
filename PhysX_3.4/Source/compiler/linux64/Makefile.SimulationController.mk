@@ -124,7 +124,7 @@ SimulationController_debug_common_cflags    += $(addprefix -I, $(SimulationContr
 SimulationController_debug_common_cflags  += -m64
 SimulationController_debug_common_cflags  += -Werror -m64 -fPIC -msse2 -mfpmath=sse -fno-exceptions -fno-rtti -fvisibility=hidden -fvisibility-inlines-hidden
 SimulationController_debug_common_cflags  += -Wall -Wextra -Wstrict-aliasing=2 -fdiagnostics-show-option
-SimulationController_debug_common_cflags  += -Wno-invalid-offsetof -Wno-uninitialized -Wno-implicit-fallthrough
+SimulationController_debug_common_cflags  += -Wno-invalid-offsetof -Wno-uninitialized -Wno-implicit-fallthrough -Wno-error=mismatched-new-delete
 SimulationController_debug_common_cflags  += -Wno-missing-field-initializers
 SimulationController_debug_common_cflags  += -g3 -gdwarf-2
 SimulationController_debug_cflags	:= $(SimulationController_debug_common_cflags)

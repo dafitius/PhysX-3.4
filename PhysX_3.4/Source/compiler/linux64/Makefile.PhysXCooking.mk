@@ -213,7 +213,7 @@ PhysXCooking_debug_common_cflags    += $(addprefix -I, $(PhysXCooking_debug_hpat
 PhysXCooking_debug_common_cflags  += -m64
 PhysXCooking_debug_common_cflags  += -Werror -m64 -fPIC -msse2 -mfpmath=sse -fno-exceptions -fno-rtti -fvisibility=hidden -fvisibility-inlines-hidden
 PhysXCooking_debug_common_cflags  += -Wall -Wextra -Wstrict-aliasing=2 -fdiagnostics-show-option
-PhysXCooking_debug_common_cflags  += -Wno-invalid-offsetof -Wno-uninitialized -Wno-implicit-fallthrough
+PhysXCooking_debug_common_cflags  += -Wno-invalid-offsetof -Wno-uninitialized -Wno-implicit-fallthrough -Wno-error=mismatched-new-delete
 PhysXCooking_debug_common_cflags  += -Wno-missing-field-initializers
 PhysXCooking_debug_common_cflags  += -g3 -gdwarf-2
 PhysXCooking_debug_cflags	:= $(PhysXCooking_debug_common_cflags)

@@ -293,7 +293,7 @@ PhysX_debug_common_cflags    += $(addprefix -I, $(PhysX_debug_hpaths))
 PhysX_debug_common_cflags  += -m64
 PhysX_debug_common_cflags  += -Werror -m64 -fPIC -msse2 -mfpmath=sse -fno-exceptions -fno-rtti -fvisibility=hidden -fvisibility-inlines-hidden
 PhysX_debug_common_cflags  += -Wall -Wextra -Wstrict-aliasing=2 -fdiagnostics-show-option
-PhysX_debug_common_cflags  += -Wno-invalid-offsetof -Wno-uninitialized -Wno-implicit-fallthrough -Wno-error=nonnull -Wno-error=array-bounds -Wno-error=restrict
+PhysX_debug_common_cflags  += -Wno-invalid-offsetof -Wno-uninitialized -Wno-implicit-fallthrough -Wno-error=nonnull -Wno-error=array-bounds -Wno-error=restrict -Wno-error=mismatched-new-delete
 PhysX_debug_common_cflags  += -Wno-missing-field-initializers
 PhysX_debug_common_cflags  += -g3 -gdwarf-2
 PhysX_debug_cflags	:= $(PhysX_debug_common_cflags)

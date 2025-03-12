@@ -547,7 +547,7 @@ void Sc::ShapeInteraction::processUserNotification(PxU32 contactEvent, PxU16 inf
 
 			if (!isCCDPass)
 			{
-				PX_ASSERT(0==(reinterpret_cast<const uintptr_t>(output->contactPatches) & 0x0f));  // check 16Byte alignment
+				PX_ASSERT(0==(reinterpret_cast<uintptr_t>(output->contactPatches) & 0x0f));  // check 16Byte alignment
 				contactPatchData =  output->contactPatches;
 				contactPointData = output->contactPoints;
 				cDataSize = sizeof(PxContactPatch)*output->nbPatches + sizeof(PxContact)*output->nbContacts;
@@ -556,7 +556,7 @@ void Sc::ShapeInteraction::processUserNotification(PxU32 contactEvent, PxU16 inf
 			}
 			else
 			{
-				PX_ASSERT(0==(reinterpret_cast<const uintptr_t>(ccdContactData) & 0x0f));  // check 16Byte alignment
+				PX_ASSERT(0==(reinterpret_cast<uintptr_t>(ccdContactData) & 0x0f));  // check 16Byte alignment
 				contactPatchData = reinterpret_cast<const PxU8*>(ccdContactData) + sizeof(PxsCCDContactHeader);
 				contactPointData = contactPatchData + sizeof(PxContactPatch);
 				cDataSize = ccdContactData->contactStreamSize - sizeof(PxsCCDContactHeader);

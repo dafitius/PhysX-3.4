@@ -129,7 +129,7 @@ PhysXExtensions_debug_common_cflags    += $(addprefix -I, $(PhysXExtensions_debu
 PhysXExtensions_debug_common_cflags  += -m64
 PhysXExtensions_debug_common_cflags  += -Werror -m64 -fPIC -msse2 -mfpmath=sse -fno-exceptions -fno-rtti -fvisibility=hidden -fvisibility-inlines-hidden
 PhysXExtensions_debug_common_cflags  += -Wall -Wextra -Wstrict-aliasing=2 -fdiagnostics-show-option
-PhysXExtensions_debug_common_cflags  += -Wno-invalid-offsetof -Wno-uninitialized -Wno-implicit-fallthrough -Wno-error=array-bounds
+PhysXExtensions_debug_common_cflags  += -Wno-invalid-offsetof -Wno-uninitialized -Wno-implicit-fallthrough -Wno-error=array-bounds -Wno-error=mismatched-new-delete
 PhysXExtensions_debug_common_cflags  += -Wno-missing-field-initializers
 PhysXExtensions_debug_common_cflags  += -g3 -gdwarf-2
 PhysXExtensions_debug_cflags	:= $(PhysXExtensions_debug_common_cflags)
