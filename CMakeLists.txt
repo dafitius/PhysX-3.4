@@ -13,27 +13,17 @@ endif()
 
 
 option(PX_COOKING "Enable PhysX cooking feature" ON)
-option(PX_CHECKED "Enable PhysX runtime checking feature" ON)
+option(PX_CHECKED "Enable PhysX runtime checking feature" OFF)
 option(PX_SUPPORT_PVD "Enable PhysX pvd feature" OFF)
 option(PX_PHYSX_STATIC_LIB "Enable static linking for PhysX" ON)
 option(DISABLE_CUDA_PHYSX "Disable PhysX GPU feature" ON)
-
-
-if(DEFINED CMAKE_CXX_FLAGS)
-    string(REPLACE "-DPX_COOKING" "" CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS}")
-    string(REPLACE "-DPX_CHECKED" "" CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS}")
-    string(REPLACE "-DPX_SUPPORT_PVD" "" CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS}")
-    string(REPLACE "-DPX_PHYSX_STATIC_LIB" "" CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS}")
-    string(REPLACE "-DDISABLE_CUDA_PHYSX" "" CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS}")
-endif()
-
 
 if(PX_COOKING)
     add_compile_definitions(PX_COOKING)
 endif()
 
 if(PX_CHECKED)
-    add_compile_definitions(PX_CHECKED)
+    add_compile_definitions(PX_CHECKED=1)
 endif()
 
 if(PX_SUPPORT_PVD)
@@ -47,6 +37,8 @@ endif()
 if(DISABLE_CUDA_PHYSX)
     add_compile_definitions(DISABLE_CUDA_PHYSX)
 endif()
+
+message("Running with the following options: ${EXPORT_COMPILE_DEFINITIONS}")
 
 add_subdirectory(PxShared)
 add_subdirectory(PhysX_3.4)

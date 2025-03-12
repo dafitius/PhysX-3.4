@@ -56,7 +56,6 @@ namespace physx
 		// function.  If the modification is made on a custom branch, please change PX_BINARY_SERIAL_VERSION
 		// accordingly.
 		//==================================================================================================
-			PX_FORCE_INLINE ManifestEntry(const ManifestEntry& other) = default;
 
 			PX_FORCE_INLINE	ManifestEntry(PxU32 _offset, PxType _type)
 			{
@@ -82,7 +81,6 @@ namespace physx
 		// function.  If the modification is made on a custom branch, please change PX_BINARY_SERIAL_VERSION
 		// accordingly.
 		//==================================================================================================
-		PX_FORCE_INLINE ImportReference(const ImportReference& other) = default;
 
 			PX_FORCE_INLINE	ImportReference(PxSerialObjectId _id, PxType _type)
 			{ 
@@ -106,18 +104,13 @@ namespace physx
 		// Changing the data layout of this class breaks the binary serialization format.  See comments for 
 		// PX_BINARY_SERIAL_VERSION.  If a modification is required, please adjust the getBinaryMetaData 
 		// function.  If the modification is made on a custom branch, please change PX_BINARY_SERIAL_VERSION
-		// accordingly. 
+		// accordingly.
 		//==================================================================================================
-			
-			//ok👍
 
 			PX_FORCE_INLINE	SerialObjectIndex(PxU32 index, bool external) { setIndex(index, external); }
 			PX_FORCE_INLINE	SerialObjectIndex(const SerialObjectIndex& objIndex) : mObjIndex(objIndex.mObjIndex) {}
 			PX_FORCE_INLINE	SerialObjectIndex() : mObjIndex(PX_INVALID_U32) {}
-			PX_FORCE_INLINE	SerialObjectIndex& operator=(const SerialObjectIndex& objIndex){
-				mObjIndex = objIndex.mObjIndex;
-				return *this;
-			}
+
 			PX_FORCE_INLINE void setIndex(PxU32 index, bool external)
 			{
 				PX_ASSERT((index & SERIAL_OBJECT_INDEX_TYPE_BIT) == 0); 
@@ -143,7 +136,6 @@ namespace physx
 		// function.  If the modification is made on a custom branch, please change PX_BINARY_SERIAL_VERSION
 		// accordingly.
 		//==================================================================================================
-			PX_FORCE_INLINE ExportReference(const ExportReference& other) = default;
 
 			PX_FORCE_INLINE	ExportReference(PxSerialObjectId _id, SerialObjectIndex _objIndex)
 			{
@@ -169,7 +161,7 @@ namespace physx
 		// function.  If the modification is made on a custom branch, please change PX_BINARY_SERIAL_VERSION
 		// accordingly.
 		//==================================================================================================
-			PX_FORCE_INLINE InternalReference(const InternalReference& other) = default;
+
 			PX_FORCE_INLINE	InternalReference(ReferenceType _reference, PxU32 _kind, SerialObjectIndex _objIndex)
 			{
 				Cm::markSerializedMem(this, sizeof(InternalReference));
