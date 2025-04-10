@@ -73,8 +73,8 @@ namespace Ext
 	// function.  If the modification is made on a custom branch, please change PX_BINARY_SERIAL_VERSION
 	// accordingly.
 	//==================================================================================================
-							PxConstraintInvMassScale	invMassScale;
-							PxTransform					c2b[2];		
+		PxTransform					c2b[2];		
+		PxConstraintInvMassScale	invMassScale;
 	protected:
 		                    ~JointData(){}
 	};

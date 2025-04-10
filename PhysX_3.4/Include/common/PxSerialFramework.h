@@ -229,7 +229,11 @@ public:
 	PX_INLINE	T*				readExtraData(PxU32 count=1)
 	{
 		T* data = reinterpret_cast<T*>(mExtraDataAddress);
+		auto data_size = sizeof(T);
 		mExtraDataAddress += sizeof(T)*count;
+		if (data_size == 384){ //if size of D6Joint
+			mExtraDataAddress += 0x10; //add some missing bytes
+		}
 		return data;
 	}
 
@@ -272,7 +276,7 @@ protected:
 
 								PxDeserializationContext() {}
 	virtual						~PxDeserializationContext() {}
-
+public: // for testing purposes, remove later :)
 	PxU8*						mExtraDataAddress;	
 };
 

@@ -259,7 +259,8 @@ PxCollection* PxSerialization::createCollectionFromBinary(void* memBlock, PxSeri
 	// iterate over memory containing PxBase objects, create the instances, resolve the addresses, import the external data, add to collection.
 	{
 		PxU32 nbObjects = nbObjectsInCollection;
-
+		auto base_address = alignPtr(address);
+		auto base_extra_address = context.mExtraDataAddress;
 		while(nbObjects--)
 		{
 			address = alignPtr(address);
@@ -271,6 +272,11 @@ PxCollection* PxSerialization::createCollectionFromBinary(void* memBlock, PxSeri
 			const PxSerializer* serializer = sn.getSerializer(classType);
 			PX_ASSERT(serializer);
 
+
+			auto ptr_address = address;
+			auto ptr_extra_address = context.mExtraDataAddress;
+			PxU16 type_name = header->getConcreteType();
+			printf("%p, %p, [%i]\n", (void*)(ptr_address - base_address), (void*)(ptr_extra_address - base_extra_address), type_name);
 			PxBase* instance = serializer->createObject(address, context);
 			if (!instance)
 			{
